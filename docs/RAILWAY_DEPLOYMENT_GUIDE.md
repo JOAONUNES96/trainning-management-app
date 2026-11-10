@@ -88,6 +88,8 @@ API_INTERNAL_URL=http://backend.railway.internal:8080
 and `/health/backend` to `API_INTERNAL_URL`, and answers `/health` itself.
 The backend must listen on the same port as in `API_INTERNAL_URL`; it does, as
 `application-prod.yml` uses `server.port: ${PORT:8080}`.
+Railway's builder rejects `RUN --mount=type=secret`, so the corporate CA
+(`npm_ca`) is injected only by the local `frontend/Dockerfile`.
 
 ## 4. Networking and domains
 
